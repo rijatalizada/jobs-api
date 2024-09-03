@@ -1,7 +1,5 @@
-import {model, Schema, Types } from "mongoose";
-import { IJob } from "../types";
-
-
+import { model, Schema, Types } from "mongoose";
+import { IJob } from "../types/job";
 
 const JobSchema = new Schema<IJob>(
   {
@@ -30,4 +28,4 @@ const JobSchema = new Schema<IJob>(
   { timestamps: true }
 );
 
-export default model("Job", JobSchema)
+export default model("Job", JobSchema);

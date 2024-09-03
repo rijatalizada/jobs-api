@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export interface IUser {
   username: string;
   email: string;
@@ -7,9 +5,9 @@ export interface IUser {
 }
 
 export interface IUserData {
+  userId: string;
   username: string;
   email: string;
-  userId: string;
 }
 
 export interface IUserMethods {
@@ -21,20 +19,3 @@ export interface IUserMethods {
     username: string;
   };
 }
-
-export interface IJob {
-  company: string;
-  position: string;
-  status: status;
-  createdBy: Schema.Types.ObjectId;
-}
-
-export interface CustomRequest extends Request {
-  user: {
-    userId: string;
-    email: string;
-    username: string;
-  };
-}
-
-type status = "interview" | "declined" | "pending";

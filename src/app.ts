@@ -6,9 +6,9 @@ import jobsAuth from "./routes/jobs";
 import authorizationMiddleware from "./middlewares/authorization";
 import notFoundMiddleware from "./middlewares/not-found";
 import errorHandlerMiddleware from "./middlewares/error-handler";
-import expressRateLimitter from 'express-rate-limit'
+import expressRateLimitter from "express-rate-limit";
 import helmet from "helmet";
-import cors from 'cors'
+import cors from "cors";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -21,16 +21,15 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/jobs", authorizationMiddleware, jobsAuth);
 
-app.set('trust proxy', 1)
+app.set("trust proxy", 1);
 app.use(
   expressRateLimitter({
     windowMs: 15 * 60 * 1000,
-    max: 100
+    max: 100,
   })
 );
 app.use(helmet());
 app.use(cors());
-
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

@@ -2,13 +2,9 @@ import mongoose from "mongoose";
 import bycryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
-import { BadRequestError } from "../errors";
-import { IUser, IUserMethods } from "../types";
+import { IUser, IUserMethods } from "../types/user";
 
 dotenv.config();
-
-
-
 
 const UserSchema = new mongoose.Schema<IUser, {}, IUserMethods>({
   username: {
